@@ -30,12 +30,42 @@ jobs:
     - name: Test
       run: dotnet test MTGRecognition.sln --no-build --verbosity normal
 
-    - name: 'Archive files'
+    - name: 'Archive Files'
       run: tar -cvf BuildResults.tar BuildResults/
 
-    - name: 'Upload Artifact'
+    - name: 'Upload Artifacts'
       uses: actions/upload-artifact@v4
       with:
         name: Build-Artifacts
         path: BuildResults.tar
+        retention-days: 60
+
+  publish:
+
+      runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 8.0.x
+        
+    - name: Restore dependencies
+      run: dotnet restore MTGRecognition.sln
+
+    - name: Publish
+      run: dotnet publish MTGRecognition.sln --configuration Release --runtime any --self-contained -p:PublishReadyToRun=true
+
+    - name: Test
+      run: dotnet test MTGRecognition.sln --no-build --verbosity normal
+
+    - name: 'Archive Files'
+      run: tar -cvf PublishResults.tar BuildResults/
+
+    - name: 'Upload Artifacts'
+      uses: actions/upload-artifact@v4
+      with:
+        name: Publish-Artifacts
+        path: PublishResults.tar
         retention-days: 60
