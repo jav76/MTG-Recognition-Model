@@ -34,8 +34,8 @@ jobs:
     - name: Test
       run: dotnet test MTG-Recognition.sln --no-build --verbosity normal
 
-    - uses: actions/upload-artifact@v4
     - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v4
       with:
         name: Build-Artifacts
         path: BuildResults/
