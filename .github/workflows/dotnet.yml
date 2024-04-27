@@ -57,22 +57,22 @@ jobs:
       run: dotnet restore MTGRecognition.sln
 
     - name: Publish win-x64
-      run: dotnet publish MTGRecognition.sln --configuration Release --runtime win-x64 --self-contained -p:PublishReadyToRun=true
+      run: dotnet publish MTGRecognition.sln --configuration Release --runtime win-x64 --self-contained -p:PublishReadyToRun=true -p:PublishSingleFile=true
 
     - name: Publish win-x86
-      run: dotnet publish MTGRecognition.sln --configuration Release --runtime win-x86 --self-contained -p:PublishReadyToRun=true
+      run: dotnet publish MTGRecognition.sln --configuration Release --runtime win-x86 --self-contained -p:PublishReadyToRun=true -p:PublishSingleFile=true
 
     - name: Publish win-arm64
-      run: dotnet publish MTGRecognition.sln --configuration Release --runtime win-arm64 --self-contained -p:PublishReadyToRun=true
+      run: dotnet publish MTGRecognition.sln --configuration Release --runtime win-arm64 --self-contained -p:PublishReadyToRun=true -p:PublishSingleFile=true
 
     - name: Publish linux-x64
-      run: dotnet publish MTGRecognition.sln --configuration Release --runtime linux-x64 --self-contained -p:PublishReadyToRun=true
+      run: dotnet publish MTGRecognition.sln --configuration Release --runtime linux-x64 --self-contained -p:PublishReadyToRun=true -p:PublishSingleFile=true
 
     - name: Publish linux-arm
-      run: dotnet publish MTGRecognition.sln --configuration Release --runtime linux-arm --self-contained -p:PublishReadyToRun=true
+      run: dotnet publish MTGRecognition.sln --configuration Release --runtime linux-arm --self-contained -p:PublishReadyToRun=true -p:PublishSingleFile=true
 
-    - name: Publishlinux-arm64
-      run: dotnet publish MTGRecognition.sln --configuration Release --runtime linux-arm64 --self-contained -p:PublishReadyToRun=true
+    - name: Publish linux-arm64
+      run: dotnet publish MTGRecognition.sln --configuration Release --runtime linux-arm64 --self-contained -p:PublishReadyToRun=true -p:PublishSingleFile=true
 
     - name: Test
       run: dotnet test MTGRecognition.sln --no-build --verbosity normal
@@ -86,3 +86,4 @@ jobs:
         name: Publish-Artifacts
         path: PublishResults.tar
         retention-days: 60
+        compression-level: 9
