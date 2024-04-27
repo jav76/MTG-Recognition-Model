@@ -11,4 +11,8 @@
     <BaseOutputPath>..\BuildResults</BaseOutputPath>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MTGDataAccess\MTGDataAccess.csproj" />
+  </ItemGroup>
+
 </Project>
