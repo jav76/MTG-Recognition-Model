@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MTG-Recognition", "MTG-Recognition.csproj", "{249DC244-8FB3-4E7D-A947-55F1C2B275AC}"
+	ProjectSection(ProjectDependencies) = postProject
+		{75204D64-4175-4568-BAFF-8139B2E39DE3} = {75204D64-4175-4568-BAFF-8139B2E39DE3}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MTGDataAccess", "..\MTGDataAccess\MTGDataAccess.csproj", "{75204D64-4175-4568-BAFF-8139B2E39DE3}"
 EndProject

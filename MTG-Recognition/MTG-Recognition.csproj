@@ -8,6 +8,7 @@
     <Nullable>enable</Nullable>
     <StartupObject>MTG_Recognition.Program</StartupObject>
     <SignAssembly>False</SignAssembly>
+    <BaseOutputPath>..\BuildResults</BaseOutputPath>
   </PropertyGroup>
 
 </Project>
