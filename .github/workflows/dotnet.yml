@@ -24,9 +24,19 @@ jobs:
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 8.0.x
+        
     - name: Restore dependencies
       run: dotnet restore MTG-Recognition.sln
+
     - name: Build
       run: dotnet build MTG-Recognition.sln --configuration Release
+
     - name: Test
       run: dotnet test MTG-Recognition.sln --no-build --verbosity normal
+
+    - name: 'Upload Artifact'
+    uses: actions/upload-artifact@v4
+    with:
+      name: Build-Artifacts
+      path: BuildResults/
+      retention-days: 60
