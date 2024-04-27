@@ -14,10 +14,6 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    defaults:
-      run:
-        working-directory: ./MTG-Recognition
-
     steps:
     - uses: actions/checkout@v4
     - name: Setup .NET
@@ -26,13 +22,13 @@ jobs:
         dotnet-version: 8.0.x
         
     - name: Restore dependencies
-      run: dotnet restore MTG-Recognition.sln
+      run: dotnet restore MTGRecognition.sln
 
     - name: Build
-      run: dotnet build MTG-Recognition.sln --configuration Release
+      run: dotnet build MTGRecognition.sln --configuration Release
 
     - name: Test
-      run: dotnet test MTG-Recognition.sln --no-build --verbosity normal
+      run: dotnet test MTGRecognition.sln --no-build --verbosity normal
 
     - name: 'Upload Artifact'
       uses: actions/upload-artifact@v4
