@@ -56,8 +56,23 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore MTGRecognition.sln
 
-    - name: Publish
-      run: dotnet publish MTGRecognition.sln --configuration Release --runtime any --self-contained -p:PublishReadyToRun=true
+    - name: Publish win-x64
+      run: dotnet publish MTGRecognition.sln --configuration Release --runtime win-x64 --self-contained -p:PublishReadyToRun=true
+
+    - name: Publish win-x86
+      run: dotnet publish MTGRecognition.sln --configuration Release --runtime win-x86 --self-contained -p:PublishReadyToRun=true
+
+    - name: Publish win-arm64
+      run: dotnet publish MTGRecognition.sln --configuration Release --runtime win-arm64 --self-contained -p:PublishReadyToRun=true
+
+    - name: Publish linux-x64
+      run: dotnet publish MTGRecognition.sln --configuration Release --runtime linux-x64 --self-contained -p:PublishReadyToRun=true
+
+    - name: Publish linux-arm
+      run: dotnet publish MTGRecognition.sln --configuration Release --runtime linux-arm --self-contained -p:PublishReadyToRun=true
+
+    - name: Publishlinux-arm64
+      run: dotnet publish MTGRecognition.sln --configuration Release --runtime linux-arm64 --self-contained -p:PublishReadyToRun=true
 
     - name: Test
       run: dotnet test MTGRecognition.sln --no-build --verbosity normal
