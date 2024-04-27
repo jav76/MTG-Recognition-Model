@@ -1,4 +1,4 @@
-﻿namespace MTG_Recognition
+﻿namespace MTGRecognition
 {
     internal class Program
     {

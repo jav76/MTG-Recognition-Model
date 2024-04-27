@@ -3,10 +3,10 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net8.0</TargetFramework>
-    <RootNamespace>MTG_Recognition</RootNamespace>
+    <RootNamespace>MTGRecognition</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <StartupObject>MTG_Recognition.Program</StartupObject>
+    <StartupObject>MTGRecognition.Program</StartupObject>
     <SignAssembly>False</SignAssembly>
     <BaseOutputPath>..\BuildResults</BaseOutputPath>
   </PropertyGroup>
