@@ -18,6 +18,12 @@ namespace MTGDataAccess.Scryfall
             _requestType = requestType;
         }
 
+        public ScryfallRequest(CardRequestTypeEnum requestType, string? resource, Method method) : base(resource)
+        {
+            _requestType = requestType;
+            Method = method;
+        }
+
         private string? GetResourceFromRequestType(CardRequestTypeEnum requestType)
         {
             switch (requestType)

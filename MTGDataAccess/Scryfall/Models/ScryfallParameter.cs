@@ -14,7 +14,7 @@ namespace MTGDataAccess.Scryfall.Models
             Value = value;
         }
 
-        public static Parameter? BuildParameter(ScryfallParameter<TScryfallParameterValue> parameter)
+        public static Parameter BuildParameter(ScryfallParameter<TScryfallParameterValue> parameter)
         {
             if (string.IsNullOrWhiteSpace(parameter.Name) || parameter.Value == null)
             {
