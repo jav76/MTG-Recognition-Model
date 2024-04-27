@@ -30,9 +30,12 @@ jobs:
     - name: Test
       run: dotnet test MTGRecognition.sln --no-build --verbosity normal
 
+    - name: 'Archive files'
+      run: tar -cvf BuildResults.tar BuildResults/
+
     - name: 'Upload Artifact'
       uses: actions/upload-artifact@v4
       with:
         name: Build-Artifacts
-        path: BuildResults/
+        path: BuildResults.tar
         retention-days: 60
