@@ -1,10 +1,12 @@
-﻿namespace MTGRecognition
+﻿using MTGDataAccess.Scryfall;
+
+namespace MTGRecognition
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            ScryfallAccess scryfallAccess = new ScryfallAccess();
         }
     }
 }
