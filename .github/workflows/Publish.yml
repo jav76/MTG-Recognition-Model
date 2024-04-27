@@ -13,50 +13,47 @@ on:
 jobs:
   if_merged:
     if: github.event.pull_request.merged == true
+    
+    runs-on: ubuntu-latest
+    steps:
 
-    publish:
-      name: 'Publish'
+    - uses: actions/checkout@v4
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 8.0.x
+        
+    - name: Restore dependencies
+      run: dotnet restore MTGRecognition.sln
 
-      runs-on: ubuntu-latest
+    - name: Publish win-x64
+      run: dotnet publish MTGRecognition.sln --configuration Release --runtime win-x64 --self-contained -p:PublishReadyToRun=true -p:PublishSingleFile=true
 
-      steps:
-      - uses: actions/checkout@v4
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: 8.0.x
-          
-      - name: Restore dependencies
-        run: dotnet restore MTGRecognition.sln
+    - name: Publish win-x86
+      run: dotnet publish MTGRecognition.sln --configuration Release --runtime win-x86 --self-contained -p:PublishReadyToRun=true -p:PublishSingleFile=true
 
-      - name: Publish win-x64
-        run: dotnet publish MTGRecognition.sln --configuration Release --runtime win-x64 --self-contained -p:PublishReadyToRun=true -p:PublishSingleFile=true
+    - name: Publish win-arm64
+      run: dotnet publish MTGRecognition.sln --configuration Release --runtime win-arm64 --self-contained -p:PublishReadyToRun=true -p:PublishSingleFile=true
 
-      - name: Publish win-x86
-        run: dotnet publish MTGRecognition.sln --configuration Release --runtime win-x86 --self-contained -p:PublishReadyToRun=true -p:PublishSingleFile=true
+    - name: Publish linux-x64
+      run: dotnet publish MTGRecognition.sln --configuration Release --runtime linux-x64 --self-contained -p:PublishReadyToRun=true -p:PublishSingleFile=true
 
-      - name: Publish win-arm64
-        run: dotnet publish MTGRecognition.sln --configuration Release --runtime win-arm64 --self-contained -p:PublishReadyToRun=true -p:PublishSingleFile=true
+    - name: Publish linux-arm
+      run: dotnet publish MTGRecognition.sln --configuration Release --runtime linux-arm --self-contained -p:PublishReadyToRun=true -p:PublishSingleFile=true
 
-      - name: Publish linux-x64
-        run: dotnet publish MTGRecognition.sln --configuration Release --runtime linux-x64 --self-contained -p:PublishReadyToRun=true -p:PublishSingleFile=true
+    - name: Publish linux-arm64
+      run: dotnet publish MTGRecognition.sln --configuration Release --runtime linux-arm64 --self-contained -p:PublishReadyToRun=true -p:PublishSingleFile=true
 
-      - name: Publish linux-arm
-        run: dotnet publish MTGRecognition.sln --configuration Release --runtime linux-arm --self-contained -p:PublishReadyToRun=true -p:PublishSingleFile=true
+    - name: Test
+      run: dotnet test MTGRecognition.sln --no-build --verbosity normal
 
-      - name: Publish linux-arm64
-        run: dotnet publish MTGRecognition.sln --configuration Release --runtime linux-arm64 --self-contained -p:PublishReadyToRun=true -p:PublishSingleFile=true
+    - name: 'Archive Files'
+      run: tar -cvf PublishResults.tar BuildResults/
 
-      - name: Test
-        run: dotnet test MTGRecognition.sln --no-build --verbosity normal
-
-      - name: 'Archive Files'
-        run: tar -cvf PublishResults.tar BuildResults/
-
-      - name: 'Upload Artifacts'
-        uses: actions/upload-artifact@v4
-        with:
-          name: Publish-Artifacts
-          path: PublishResults.tar
-          retention-days: 60
-          compression-level: 9
+    - name: 'Upload Artifacts'
+      uses: actions/upload-artifact@v4
+      with:
+        name: Publish-Artifacts
+        path: PublishResults.tar
+        retention-days: 60
+        compression-level: 9
