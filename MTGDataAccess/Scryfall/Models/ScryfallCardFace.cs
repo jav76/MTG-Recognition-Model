@@ -13,9 +13,9 @@
         public ScryfallImageURIs? Image_URIs { get; set; }
         public string? Layout { get; set; }
         public string? Loyalty { get; set; }
-        public string ManaCost { get; set; }
-        public string Name { get; set; }
-        public string @Object { get; set; }
+        public string? ManaCost { get; set; }
+        public string? Name { get; set; }
+        public string? @Object { get; set; }
         public Guid? Oracle_ID { get; set; }
         public string? Oracle_Text { get; set; }
         public string? Power { get; set; }

@@ -11,7 +11,7 @@
             { 'G', "Green" }
         };
 
-        public char[] Colors { get; set; }
+        public char[]? Colors { get; set; }
 
         private ScryfallColors()
         {
