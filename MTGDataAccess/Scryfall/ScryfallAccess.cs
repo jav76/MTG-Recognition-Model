@@ -25,7 +25,6 @@ namespace MTGDataAccess.Scryfall
 
             RestResponse response = testAPI().Result;
             Debug.Write(response.Content);
-
 #endif
 
         }

@@ -74,7 +74,8 @@ namespace MTGDataAccess.Scryfall
                 }
                 if (Resource.Contains(param.Name))
                 {
-                    Resource = Resource.Replace(param.Name, param.Value.ToString()).Replace("{", "").Replace("}", "");
+                    string resourceParameter = "{" + param.Name + "}";
+                    Resource = Resource.Replace(resourceParameter, param.Value.ToString());
                 }
             }
         }
