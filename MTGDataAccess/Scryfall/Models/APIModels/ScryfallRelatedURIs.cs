@@ -7,7 +7,7 @@
         public Uri? TCGPlayer_Infinite_Decks { get; set; }
         public Uri? EDHREC { get; set; }
 
-        private ScryfallRelatedURIs()
+        public ScryfallRelatedURIs()
         {
             
         }

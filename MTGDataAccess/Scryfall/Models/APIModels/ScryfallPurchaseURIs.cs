@@ -6,7 +6,7 @@
         public Uri? CardMarket { get; set; }
         public Uri? CardHoarder { get; set; }
 
-        private ScryfallPurchaseURIs()
+        public ScryfallPurchaseURIs()
         {
             
         }

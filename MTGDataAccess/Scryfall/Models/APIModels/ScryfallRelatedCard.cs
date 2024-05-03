@@ -8,7 +8,7 @@
         public string? Name { get; set; }
         public string? Type_Line { get; set; }
         public Uri? URI { get; set; }
-        private ScryfallRelatedCard()
+        public ScryfallRelatedCard()
         {
             
         }

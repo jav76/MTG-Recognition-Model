@@ -3,10 +3,10 @@
     public class ScryfallCardFace
     {
         public string? Artist { get; set; }
-        public Guid? Artist_ID { get; set; }
+        public Guid? Artist_IDs { get; set; }
         public decimal? CMC { get; set; }
-        public ScryfallColors? Color_Indicator { get; set; }
-        public ScryfallColors? Colors { get; set; }
+        public char[]? Color_Indicator { get; set; }
+        public char[]? Colors { get; set; }
         public string? Defense { get; set; }
         public string? Flavor_Text { get; set; }
         public Guid? Illustration_ID { get; set; }
@@ -26,7 +26,7 @@
         public string? Type_Line { get; set; }
         public string? Watermark { get; set; }
 
-        private ScryfallCardFace()
+        public ScryfallCardFace()
         {
             
         }

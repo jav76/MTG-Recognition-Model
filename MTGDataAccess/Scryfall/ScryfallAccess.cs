@@ -25,6 +25,10 @@ namespace MTGDataAccess.Scryfall
 
             RestResponse response = testAPI().Result;
             Debug.Write(response.Content);
+
+            MTGCardBuilder factory = new MTGCardBuilder(response?.Content);
+
+            ScryfallCard? card = factory.BuildCard();
 #endif
 
         }
@@ -33,7 +37,7 @@ namespace MTGDataAccess.Scryfall
 
         private async Task<RestResponse> testAPI()
         {
-            ScryfallParameter<Guid> IDParameter = new ScryfallParameter<Guid>("id", Guid.Parse("56ebc372-aabd-4174-a943-c7bf59e5028d"));
+            ScryfallParameter<Guid> IDParameter = new ScryfallParameter<Guid>("id", Guid.Parse("b37aa12c-a6b3-4cf8-b5a4-0a999ff12d02"));
 
             ScryfallRequest request = new ScryfallRequest(CardRequestTypeEnum.ScryfallID);
             request.AddParameter(ScryfallParameter<Guid>.BuildParameter(IDParameter));

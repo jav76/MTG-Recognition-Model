@@ -6,7 +6,7 @@
         public Uri? Source_URI { get; set; }
         public string? Source { get; set; }
 
-        private ScryfallPreview()
+        public ScryfallPreview()
         {
             
         }

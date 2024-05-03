@@ -9,7 +9,7 @@
         public Uri? Border_Crop { get; set; }
         public Uri? PNG { get; set; }
 
-        private ScryfallImageURIs()
+        public ScryfallImageURIs()
         {
             
         }

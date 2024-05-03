@@ -9,7 +9,7 @@
         public decimal? EUR_Foil { get; set; }
         public decimal? TIX { get; set; }
 
-        private ScryfallPrices()
+        public ScryfallPrices()
         {
             
         }
