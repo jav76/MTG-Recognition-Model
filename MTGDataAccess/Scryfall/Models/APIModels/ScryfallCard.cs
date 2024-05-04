@@ -25,6 +25,7 @@
         #endregion
 
         #region " Gameplay "
+
         public List<ScryfallRelatedCard>? All_Parts { get; set; }
         public List<ScryfallCardFace>? Card_Faces { get; set; }
         public decimal? CMC { get; set; }

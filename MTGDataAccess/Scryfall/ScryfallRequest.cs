@@ -1,4 +1,5 @@
 ﻿using MTGDataAccess.Scryfall.Models;
+using MTGDataAccess.Scryfall.Models.APIModels;
 using RestSharp;
 using Parameter = RestSharp.Parameter;
 
@@ -11,7 +12,7 @@ namespace MTGDataAccess.Scryfall
         public ScryfallRequest(CardRequestTypeEnum requestType) : base()
         {
             _requestType = requestType;
-            Resource = GetResourceFromRequestType(requestType) ?? string.Empty;
+            Resource = GetResourceFromRequestType(_requestType) ?? string.Empty;
         }
         public ScryfallRequest(CardRequestTypeEnum requestType, string? resource) : base(resource)
         {
@@ -64,8 +65,32 @@ namespace MTGDataAccess.Scryfall
             return this;
         }
 
+        public RestRequest AddParameters(CardIDParameters parameter)
+        {
+            foreach (object param in parameter.Parameters)
+            {
+                if (param.GetType() == typeof(ScryfallParameter<string>))
+                {
+                    ScryfallParameter<string> typedParam = (ScryfallParameter<string>)param;
+                    AddParameter(ScryfallParameter<string>.BuildParameter(typedParam));
+                }
+                else if (param.GetType() == typeof(ScryfallParameter<bool>))
+                {
+                    ScryfallParameter<bool> typedParam = (ScryfallParameter<bool>)param;
+                    AddParameter(ScryfallParameter<bool>.BuildParameter(typedParam));
+                }
+                else
+                {
+                    throw new ArgumentException($"Invalid parameter type: {param.GetType()}");
+                }
+            }
+            InjectResourceParameters();
+            return this;
+        }   
+
         private void InjectResourceParameters()
         {
+            string paramsString = string.Empty;
             foreach (Parameter param in Parameters)
             {
                 if (string.IsNullOrWhiteSpace(param.Name) || param.Value == null)
@@ -77,7 +102,20 @@ namespace MTGDataAccess.Scryfall
                     string resourceParameter = "{" + param.Name + "}";
                     Resource = Resource.Replace(resourceParameter, param.Value.ToString());
                 }
+                else
+                {
+                    if (string.IsNullOrWhiteSpace(paramsString))
+                    {
+                        paramsString += "?";
+                    }
+                    else
+                    {
+                        paramsString += "&";
+                    }
+                    paramsString += param.Name + "=" + param.Value;
+                }
             }
+            Resource += paramsString;
         }
 
     }
