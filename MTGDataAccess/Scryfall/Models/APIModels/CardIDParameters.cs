@@ -30,18 +30,5 @@
                 _parameters.Add(new ScryfallParameter<bool>("pretty", pretty.Value));
             }
         }
-
-        internal void AddParameter(object param)
-        {
-            if (param == null)
-            {
-                throw new ArgumentNullException("Parameter cannot be null.");
-            }
-            else if (!(param.GetType() == typeof(ScryfallParameter<>)))
-            {
-                throw new ArgumentException();
-            }
-            _parameters.Add(param);
-        }
     }
 }
