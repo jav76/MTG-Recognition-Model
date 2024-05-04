@@ -8,6 +8,7 @@
     <Nullable>enable</Nullable>
     <StartupObject></StartupObject>
     <SignAssembly>False</SignAssembly>
+    <BaseOutputPath>..\BuildResults</BaseOutputPath>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
