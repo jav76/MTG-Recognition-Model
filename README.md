@@ -1,8 +1,10 @@
-![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/jav76/MTG-Recognition-Model/Build.yml?style=for-the-badge&label=CI%20Build&link=https%3A%2F%2Fgithub.com%2Fjav76%2FMTG-Recognition-Model%2Factions%2Fworkflows%2FBuild.yml)
-![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/jav76/MTG-Recognition-Model/Publish.yml?style=for-the-badge&label=Release%20Build&link=https%3A%2F%2Fgithub.com%2Fjav76%2FMTG-Recognition-Model%2Factions%2Fworkflows%2FPublish.yml)
+<img alt="GitHub Actions Workflow Status" src="https://img.shields.io/github/actions/workflow/status/jav76/MTG-Recognition-Model/Build.yml?style=for-the-badge&label=CI%20Build&link=https%3A%2F%2Fgithub.com%2Fjav76%2FMTG-Recognition-Model%2Factions%2Fworkflows%2FBuild.yml">
+<img alt="GitHub Actions Workflow Status" src="https://img.shields.io/github/actions/workflow/status/jav76/MTG-Recognition-Model/Publish.yml?style=for-the-badge&label=Release%20Build&link=https%3A%2F%2Fgithub.com%2Fjav76%2FMTG-Recognition-Model%2Factions%2Fworkflows%2FPublish.yml">
 
-![GitHub License](https://img.shields.io/github/license/jav76/MTG-Recognition-Model?style=for-the-badge&link=https%3A%2F%2Fgithub.com%2Fjav76%2FMTG-Recognition-Model%2Fblob%2Fmain%2FLICENSE)
-![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/jav76/MTG-Recognition-Model?style=for-the-badge&link=https%3A%2F%2Fwww.codefactor.io%2Frepository%2Fgithub%2Fjav76%2Fmtg-recognition-model%2Fstats)
+
+<img alt="GitHub License" src="https://img.shields.io/github/license/jav76/MTG-Recognition-Model?style=for-the-badge&link=https%3A%2F%2Fgithub.com%2Fjav76%2FMTG-Recognition-Model%2Fblob%2Fmain%2FLICENSE">
+<img alt="CodeFactor Grade" src="https://img.shields.io/codefactor/grade/github/jav76/MTG-Recognition-Model?style=for-the-badge&link=https%3A%2F%2Fwww.codefactor.io%2Frepository%2Fgithub%2Fjav76%2Fmtg-recognition-model%2Fstats">
+
 
 # MTG Recognition
 
