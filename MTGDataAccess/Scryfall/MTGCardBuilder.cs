@@ -7,7 +7,7 @@ namespace MTGDataAccess.Scryfall
     {
         private string? _cardResponseContent { get; }
 
-        public MTGCardBuilder(string? cardResponseContent)
+        internal MTGCardBuilder(string? cardResponseContent)
         {
             _cardResponseContent = cardResponseContent;
         }
@@ -18,7 +18,7 @@ namespace MTGDataAccess.Scryfall
         /// abstracted and structured, but as of right now I don't think that's necessary.
         /// </summary>
         /// <returns>The built ScryfallCard object</returns>
-        public ScryfallCard? BuildCard()
+        internal ScryfallCard? BuildCard()
         {
             ScryfallCard? newCard = JsonConvert.DeserializeObject<ScryfallCard>(_cardResponseContent ?? string.Empty);
             if (newCard == null)

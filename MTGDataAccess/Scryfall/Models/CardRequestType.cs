@@ -1,6 +1,6 @@
 ﻿namespace MTGDataAccess.Scryfall.Models
 {
-    enum CardRequestTypeEnum
+    public enum CardRequestTypeEnum
     {
         Search,
         Named,

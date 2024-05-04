@@ -12,7 +12,7 @@ namespace MTGDataAccess.Scryfall
         private const int REQUEST_DELAY_MS = 50;
         private List<KeyValuePair<RestRequest, DateTime>> _requests { get; } // TODO: How do we clean these up? How long do we keep track of request? Autoremove after a certain time?
 
-        public bool CanRequest
+        internal bool CanRequest
         {
             get
             {
@@ -27,12 +27,12 @@ namespace MTGDataAccess.Scryfall
             }
         }
 
-        public RateMonitor()
+        internal RateMonitor()
         {
             _requests = new List<KeyValuePair<RestRequest, DateTime>>();
         }
 
-        public void AddRequest(RestRequest request)
+        internal void AddRequest(RestRequest request)
         {
             _requests.Add(new KeyValuePair<RestRequest, DateTime>(request, DateTime.Now));
         }

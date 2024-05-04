@@ -5,16 +5,16 @@ namespace MTGDataAccess.Scryfall.Models
 {
     internal class ScryfallParameter<TScryfallParameterValue>
     {
-        public string? Name { get; }
-        public TScryfallParameterValue Value { get; }
+        internal string? Name { get; }
+        internal TScryfallParameterValue Value { get; }
 
-        public ScryfallParameter(string name, TScryfallParameterValue value)
+        internal ScryfallParameter(string name, TScryfallParameterValue value)
         {
             Name = name;
             Value = value;
         }
 
-        public static Parameter BuildParameter(ScryfallParameter<TScryfallParameterValue> parameter)
+        internal static Parameter BuildParameter(ScryfallParameter<TScryfallParameterValue> parameter)
         {
             if (string.IsNullOrWhiteSpace(parameter.Name) || parameter.Value == null)
             {

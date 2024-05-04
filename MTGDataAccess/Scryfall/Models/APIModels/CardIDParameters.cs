@@ -1,20 +1,11 @@
 ﻿namespace MTGDataAccess.Scryfall.Models.APIModels
 {
-    public class CardIDParameters
+    public class CardIDParameters : ParametersCollection
     {
-        private List<object> _parameters { get; }
-
-        public IEnumerable<object> Parameters
-        {   get
-            { 
-                return _parameters;
-            } 
-        }
+        protected override CardRequestTypeEnum _requestType => CardRequestTypeEnum.ScryfallID;
 
         public CardIDParameters(string? format = null, string? face = null, string? version = null, bool? pretty = null)
         {
-            _parameters = new List<object>();
-
             if (!string.IsNullOrWhiteSpace(format))
             {
                 _parameters.Add(new ScryfallParameter<string>("format", format));
@@ -40,7 +31,7 @@
             }
         }
 
-        public void AddParameter(object param)
+        internal void AddParameter(object param)
         {
             if (param == null)
             {
