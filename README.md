@@ -1,7 +1,4 @@
-<object>
 <img alt="GitHub Actions Workflow Status" src="https://img.shields.io/github/actions/workflow/status/jav76/MTG-Recognition-Model/Build.yml?style=for-the-badge&label=CI%20Build&link=https%3A%2F%2Fgithub.com%2Fjav76%2FMTG-Recognition-Model%2Factions%2Fworkflows%2FBuild.yml">
-</object>
-
 <img alt="GitHub Actions Workflow Status" src="https://img.shields.io/github/actions/workflow/status/jav76/MTG-Recognition-Model/Publish.yml?style=for-the-badge&label=Release%20Build&link=https%3A%2F%2Fgithub.com%2Fjav76%2FMTG-Recognition-Model%2Factions%2Fworkflows%2FPublish.yml">
 
 
@@ -31,7 +28,7 @@ The entire solution is currently built into a self-contained single-file executa
 - linux-arm
 - linux-arm64
 
-At this point these platform targets don't have much reasoning besides variety and multi-playform compatibility.
+At this point these platform targets don't have much reasoning besides variety and multi-platform compatibility.
 
 ### MTGDataAccess
 

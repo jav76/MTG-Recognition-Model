@@ -21,10 +21,6 @@ namespace MTGDataAccess.Scryfall
         internal ScryfallCard? BuildCard()
         {
             ScryfallCard? newCard = JsonConvert.DeserializeObject<ScryfallCard>(_cardResponseContent ?? string.Empty);
-            if (newCard == null)
-            {
-                return null;
-            }
             
             return newCard;
         }
