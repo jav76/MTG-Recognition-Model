@@ -19,10 +19,9 @@ namespace MTGDataAccess.Scryfall
             _requestType = requestType;
         }
 
-        public ScryfallRequest(CardRequestTypeEnum requestType, string? resource, Method method) : base(resource)
+        public ScryfallRequest(CardRequestTypeEnum requestType, string? resource, Method method) : base(resource, method)
         {
             _requestType = requestType;
-            Method = method;
         }
 
         private string? GetResourceFromRequestType(CardRequestTypeEnum requestType)
@@ -97,11 +96,13 @@ namespace MTGDataAccess.Scryfall
                 {
                     throw new InvalidOperationException("Parameter name and value must be set.");
                 }
+                // Replace path parameters in the resource string
                 if (Resource.Contains(param.Name))
                 {
                     string resourceParameter = "{" + param.Name + "}";
                     Resource = Resource.Replace(resourceParameter, param.Value.ToString());
                 }
+                // At this point, we assume these are query string parameters
                 else
                 {
                     if (string.IsNullOrWhiteSpace(paramsString))
