@@ -2,7 +2,7 @@
 {
     internal interface IParametersCollection
     {
-        IEnumerable<object> Parameters { get; }
-        void AddParameter(object param);
+        public IEnumerable<object> Parameters { get; }
+        internal void AddParameter(object param);
     }
 }

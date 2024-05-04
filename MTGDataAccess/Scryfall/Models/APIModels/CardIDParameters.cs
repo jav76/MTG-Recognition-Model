@@ -25,7 +25,7 @@
                     && ((ScryfallParameter<string>)x).Name == "format"
                     && ((ScryfallParameter<string>)x).Value != "json").Any())
                 {
-                    throw new ArgumentException($"{nameof(pretty)} parameter can only be used with the json format.");
+                    throw new ArgumentException($"{nameof(pretty)} parameter can only be used with the json {nameof(format)}.");
                 }
                 _parameters.Add(new ScryfallParameter<bool>("pretty", pretty.Value));
             }

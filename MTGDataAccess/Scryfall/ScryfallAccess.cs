@@ -31,11 +31,10 @@ namespace MTGDataAccess.Scryfall
                 MTGCardBuilder cardBuilder = new MTGCardBuilder(requestContent.Content ?? string.Empty);
                 ScryfallCard? builtCard = cardBuilder.BuildCard();
             }
+
 #endif
 
         }
-
-#if DEBUG
 
         public async Task<RestResponse> GetCardResponseByID(Guid id, CardIDParameters? parameters = null)
         {
@@ -91,8 +90,6 @@ namespace MTGDataAccess.Scryfall
         {
             throw new NotImplementedException();
         }
-
-#endif
 
     }
 }
