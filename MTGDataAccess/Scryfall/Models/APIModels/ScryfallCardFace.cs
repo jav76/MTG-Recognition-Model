@@ -2,6 +2,7 @@
 {
     public class ScryfallCardFace
     {
+
         public string? Artist { get; set; }
         public Guid? Artist_IDs { get; set; }
         public decimal? CMC { get; set; }
@@ -26,9 +27,5 @@
         public string? Type_Line { get; set; }
         public string? Watermark { get; set; }
 
-        public ScryfallCardFace()
-        {
-            
-        }
     }
 }

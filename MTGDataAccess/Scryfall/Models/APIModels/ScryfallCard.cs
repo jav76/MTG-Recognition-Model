@@ -102,9 +102,5 @@
 
         public List<ScryfallCardFace>? CardFaces { get; set; }
 
-        public ScryfallCard()
-        {
-            
-        }
     }
 }

@@ -5,6 +5,7 @@ namespace MTGDataAccess.Scryfall.Models
 {
     internal class ScryfallParameter<TScryfallParameterValue>
     {
+
         internal string? Name { get; }
         internal TScryfallParameterValue Value { get; }
 
@@ -27,7 +28,6 @@ namespace MTGDataAccess.Scryfall.Models
             Parameter restParameter = Parameter.CreateParameter(parameterName, parameterValue, ParameterType.HttpHeader);
             return restParameter;
         }
-
 
     }
 }
