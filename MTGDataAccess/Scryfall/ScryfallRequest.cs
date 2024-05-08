@@ -1,4 +1,5 @@
-﻿using MTGDataAccess.Scryfall.Models;
+﻿using MTGDataAccess.Scryfall.Interfaces;
+using MTGDataAccess.Scryfall.Models;
 using MTGDataAccess.Scryfall.Models.APIModels;
 using RestSharp;
 using Parameter = RestSharp.Parameter;
@@ -64,7 +65,7 @@ namespace MTGDataAccess.Scryfall
             return this;
         }
 
-        public RestRequest AddParameters(CardIDParameters parameter)
+        public RestRequest AddParameters(IParametersCollection parameter)
         {
             foreach (object param in parameter.Parameters)
             {
@@ -78,6 +79,16 @@ namespace MTGDataAccess.Scryfall
                     ScryfallParameter<bool> typedParam = (ScryfallParameter<bool>)param;
                     AddParameter(ScryfallParameter<bool>.BuildParameter(typedParam));
                 }
+                else if (param.GetType() == typeof(ScryfallParameter<int>))
+                {
+                    ScryfallParameter<int> typedParam = (ScryfallParameter<int>)param;
+                    AddParameter(ScryfallParameter<int>.BuildParameter(typedParam));
+                }
+                else if (param.GetType() == typeof(ScryfallParameter<Guid>))
+                {
+                    ScryfallParameter<Guid> typedParam = (ScryfallParameter<Guid>)param;
+                    AddParameter(ScryfallParameter<Guid>.BuildParameter(typedParam));
+                }
                 else
                 {
                     throw new ArgumentException($"Invalid parameter type: {param.GetType()}");
@@ -85,7 +96,7 @@ namespace MTGDataAccess.Scryfall
             }
             InjectResourceParameters();
             return this;
-        }   
+        }
 
         private void InjectResourceParameters()
         {

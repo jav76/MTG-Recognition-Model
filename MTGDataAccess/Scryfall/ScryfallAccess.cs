@@ -40,7 +40,7 @@ namespace MTGDataAccess.Scryfall
         {
             ScryfallRequest request = new ScryfallRequest(CardRequestTypeEnum.ScryfallID);
 
-            ScryfallParameter<Guid> IDParameter = new ScryfallParameter<Guid>("id", id);
+            ScryfallParameter<Guid> IDParameter = new ScryfallParameter<Guid>(ScryfallHelpers.IDParameters.Key, id);
             request.AddParameter(ScryfallParameter<Guid>.BuildParameter(IDParameter));
             if (parameters != null)
             {
@@ -54,8 +54,22 @@ namespace MTGDataAccess.Scryfall
         {
             ScryfallRequest request = new ScryfallRequest(CardRequestTypeEnum.ScryfallID);
 
-            ScryfallParameter<Guid> IDParameter = new ScryfallParameter<Guid>("id", Guid.Parse(id));
+            ScryfallParameter<Guid> IDParameter = new ScryfallParameter<Guid>(ScryfallHelpers.IDParameters.Key, Guid.Parse(id));
             request.AddParameter(ScryfallParameter<Guid>.BuildParameter(IDParameter));
+            if (parameters != null)
+            {
+                request.AddParameters(parameters);
+            }
+
+            return await _client.ExecuteAsync(request);
+        }
+
+        public async Task<RestResponse> GetCardResponseBySearch(string query, CardSearchParameters? parameters = null)
+        {
+            ScryfallRequest request = new ScryfallRequest(CardRequestTypeEnum.Search);
+
+            ScryfallParameter<string> queryParameter = new ScryfallParameter<string>(ScryfallHelpers.QueryParameters.Key, query);
+            request.AddParameter(ScryfallParameter<string>.BuildParameter(queryParameter));
             if (parameters != null)
             {
                 request.AddParameters(parameters);
@@ -86,9 +100,15 @@ namespace MTGDataAccess.Scryfall
             return cardResponse.Result;
         }
 
-        public async Task<RestResponse> GetCardResponseBySearch()
+        public RestResponse? GetCardContentBySearch(string query, CardSearchParameters? parameters = null)
         {
-            throw new NotImplementedException();
+            Task<RestResponse> cardResponse = GetCardResponseBySearch(query, parameters);
+            if (cardResponse.Result.StatusCode != HttpStatusCode.OK)
+            {
+                return null;
+            }
+
+            return cardResponse.Result;
         }
 
     }
