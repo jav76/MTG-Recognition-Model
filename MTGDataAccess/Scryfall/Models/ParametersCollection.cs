@@ -45,7 +45,7 @@ namespace MTGDataAccess.Scryfall.Models.APIModels
                 throw new ArgumentException($"{nameof(ScryfallHelpers.FaceParameters.Key)} parameter can only be used with the image {nameof(ScryfallHelpers.FormatParameters.Key)}.");
             }
 
-            if (ScryfallHelpers.FaceParameters.Value.Where(x => string.Compare(x, face) == 0).Any())
+            if (!ScryfallHelpers.FaceParameters.Value.Where(x => string.Compare(x, face) == 0).Any())
             {
                 throw new ArgumentException($"Invalid {nameof(ScryfallHelpers.FaceParameters.Key)} : {face}");
             }
@@ -60,7 +60,7 @@ namespace MTGDataAccess.Scryfall.Models.APIModels
                 throw new ArgumentException($"{nameof(ScryfallHelpers.VersionParameters.Key)} parameter can only be used with the image {nameof(ScryfallHelpers.FormatParameters.Key)}.");
             }
 
-            if (ScryfallHelpers.VersionParameters.Value.Where(x => string.Compare(x, version) == 0).Any())
+            if (!ScryfallHelpers.VersionParameters.Value.Where(x => string.Compare(x, version) == 0).Any())
             {
                 throw new ArgumentException($"Invalid {nameof(ScryfallHelpers.VersionParameters.Key)} : {version}");
             }
@@ -80,7 +80,7 @@ namespace MTGDataAccess.Scryfall.Models.APIModels
 
         protected void AddUniqueParameter(string unique)
         {
-            if (ScryfallHelpers.UniqueParameters.Value.Where(x => string.Compare(x, unique) == 0).Any())
+            if (!ScryfallHelpers.UniqueParameters.Value.Where(x => string.Compare(x, unique) == 0).Any())
             {
                 throw new ArgumentException($"Invalid {nameof(ScryfallHelpers.UniqueParameters.Key)} : {unique}");
             }
@@ -90,7 +90,7 @@ namespace MTGDataAccess.Scryfall.Models.APIModels
 
         protected void AddOrderParameter(string order)
         {
-            if (ScryfallHelpers.OrderParameters.Value.Where(x => string.Compare(x, order) == 0).Any())
+            if (!ScryfallHelpers.OrderParameters.Value.Where(x => string.Compare(x, order) == 0).Any())
             {
                 throw new ArgumentException($"Invalid {nameof(ScryfallHelpers.OrderParameters.Key)} : {order}");
             }
@@ -100,7 +100,7 @@ namespace MTGDataAccess.Scryfall.Models.APIModels
 
         protected void AddDirParameter(string dir)
         {
-            if (ScryfallHelpers.DirParameters.Value.Where(x => string.Compare(x, dir) == 0).Any())
+            if (!ScryfallHelpers.DirParameters.Value.Where(x => string.Compare(x, dir) == 0).Any())
             {
                 throw new ArgumentException($"Invalid {nameof(ScryfallHelpers.DirParameters.Key)} : {dir}");
             }

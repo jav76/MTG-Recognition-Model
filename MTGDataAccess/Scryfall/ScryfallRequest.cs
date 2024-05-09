@@ -1,6 +1,5 @@
 ﻿using MTGDataAccess.Scryfall.Interfaces;
 using MTGDataAccess.Scryfall.Models;
-using MTGDataAccess.Scryfall.Models.APIModels;
 using RestSharp;
 using Parameter = RestSharp.Parameter;
 
