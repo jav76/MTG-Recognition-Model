@@ -1,5 +1,9 @@
 ﻿namespace MTGDataAccess.Scryfall.Models
 {
+    /// <summary>
+    /// API model for a card face object returned from the Scryfall API.
+    /// </summary>
+    /// <remarks> See Scryfall API Documentation for more information: <see href="https://scryfall.com/docs/api/cards"/></remarks>
     public class ScryfallCardFace
     {
 

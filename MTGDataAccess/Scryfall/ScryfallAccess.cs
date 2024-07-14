@@ -6,7 +6,7 @@ using System.Net;
 namespace MTGDataAccess.Scryfall
 {
     /// <summary>
-    /// This project should be used for all raw data access. This should include API calls, file storage, database access, etc.
+    /// The base class for accessing the Scryfall API.
     /// </summary>
     public class ScryfallAccess
     {
